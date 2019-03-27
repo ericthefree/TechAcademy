@@ -1,0 +1,224 @@
+﻿@model AutoQuoteEx.Models.QuoteTotal
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Content/shared_custom.css">
+        <title>Shady Insurance, Inc.</title>
+
+        @*Header for the form*@
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Shady Insurance, Inc.</h1>
+                <p>Get a car insurance quote!</p>
+            </div>
+        </div>
+    </head>
+
+    <body>
+
+        @{TempData["ClientId"] = @ViewBag.clientId;}
+
+        <div class="container py-5">
+            @* Create the quote page using the data from the View bag *@
+            <div class="row">
+                <div class="mx-auto col-sm-12">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
+                        <div class="card-body">
+                            <h2 class="text-center border-bottom">Insurance Quote Detail</h2>
+                            <br>
+                            <div class="form" role="form" autocomplete="on">
+                                @* Show the date of the quote *@
+                                <div class="form-group row">
+                                    <div class="col-lg-6 text-right">
+                                        <h5><b>Quote Date : </b></h5>
+                                    </div>
+                                    <div class="col-lg-4 text-left">
+                                        <h5><b>@ViewBag.quoteDate</b></h5>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </div>
+
+                                @* Show the base quote price *@
+                                <div class="form-group row">
+                                    <div class="col-lg-6 text-right">
+                                        <h6>Base Insurance Cost : </h6>
+                                    </div>
+                                    <div class="col-lg-4 text-left">
+                                        $  @ViewBag.baseTotal : Base Cost
+                                    </div>
+                                    <br>
+                                </div>
+
+                                @* Only show an amount here if the user is a teenager *@
+                                @if (ViewBag.teenDriveTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Irresponsible driver Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.teenDriveTotal : Teenage Driver
+                                        </div>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Only show the amount here if the user is under 25, but not considered a teenager *@
+                                @if (ViewBag.underAgeTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Not quite old enough Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.underAgeTotal : Under 25 Driver
+                                        </div>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Only show an amount here if the user is over 100 *@
+                                @if (ViewBag.overAgeTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Crazy old coot Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.overAgeTotal : Over 100 Driver
+                                        </div>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Only show an amount if the vehicle is considered an older car *@
+                                @if (ViewBag.oldCarTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Need a new car Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.oldCarTotal : Older Car
+                                        </div>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Only show an amount if the vehicle is considered a newer car *@
+                                @if (ViewBag.newCarTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Almost or new car Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.newCarTotal : Newer Car
+                                        </div>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Only show an amount here if the car is considered a sports car *@
+                                @if (ViewBag.sportCarTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Tempted by a fast car Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.sportCarTotal : Sports Car
+                                        </div>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Only show an amount here if the car is considered an exotic sports car *@
+                                @if (ViewBag.exoticCarTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Drive it like you stole it Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.exoticCarTotal : Exotic Sports Car
+                                        </div>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Only show an amount here if the user has had any speeding tickets *@
+                                @if (ViewBag.speedTicketTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Can't slow down Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.speedTicketTotal : Speeding Tickets
+                                        </div>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Only show an amount here if the user has had any DUI's *@
+                                @if (ViewBag.duiTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Drinks too much Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.duiTotal : Has Had a D.U.I.
+                                        </div>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Only show an amount here if the user selects Full coverage *@
+                                @if (ViewBag.coverageTotal != 0)
+                                {
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <h6>Cover everything Cost : </h6>
+                                        </div>
+                                        <div class="col-lg-4 text-left">
+                                            $  @ViewBag.coverageTotal : Full Coverage
+                                        </div>
+                                        <br>
+                                        <br>
+                                    </div>
+                                }
+
+                                @* Display the total amount for the customer quote *@
+                                <div class="form-group row border-top">
+                                    <div class="col-lg-6 text-right">
+                                        <h5><b>Total Insurance Premium Cost : </b></h5>
+                                    </div>
+                                    <div class="col-lg-4 text-left">
+                                        <h5><b>$  @ViewBag.quoteFinalTotal</b></h5>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </div>
+
+                                @* Create a button for the user to be able to start a new quote *@
+                                <div class="form-group row">
+                                    <button name="newQuote" type="button" class="btn btn-primary" style="display:block; margin: 0 auto;" onclick="@("window.location.href='" + Url.Action("NewQuote", "Quote") + "'");">New Quote</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

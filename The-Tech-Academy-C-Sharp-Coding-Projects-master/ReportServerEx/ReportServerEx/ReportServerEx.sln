@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "ReportServerEx", "ReportServerEx\ReportServerEx.rptproj", "{0E06FDF7-8BBE-4547-AD64-04FBA7C9B8E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E06FDF7-8BBE-4547-AD64-04FBA7C9B8E4}.Debug|Default.ActiveCfg = Debug
+		{0E06FDF7-8BBE-4547-AD64-04FBA7C9B8E4}.Debug|Default.Build.0 = Debug
+		{0E06FDF7-8BBE-4547-AD64-04FBA7C9B8E4}.Debug|Default.Deploy.0 = Debug
+		{0E06FDF7-8BBE-4547-AD64-04FBA7C9B8E4}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{0E06FDF7-8BBE-4547-AD64-04FBA7C9B8E4}.DebugLocal|Default.Build.0 = DebugLocal
+		{0E06FDF7-8BBE-4547-AD64-04FBA7C9B8E4}.Release|Default.ActiveCfg = Release
+		{0E06FDF7-8BBE-4547-AD64-04FBA7C9B8E4}.Release|Default.Build.0 = Release
+		{0E06FDF7-8BBE-4547-AD64-04FBA7C9B8E4}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E373E38-20DF-409D-AA5E-8108EFFB46D7}
+	EndGlobalSection
+EndGlobal

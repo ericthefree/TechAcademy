@@ -1,0 +1,21 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>@ViewBag.Title - Shady Insurance, Inc.</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jqueryval")
+    </head>
+    <body>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p><b>&copy; @DateTime.Now.Year - Shady Insurance, Inc.</b></p>
+            </footer>
+        </div>
+
+    </body>
+</html>

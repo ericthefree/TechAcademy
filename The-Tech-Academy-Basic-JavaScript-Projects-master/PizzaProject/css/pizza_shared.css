@@ -1,0 +1,226 @@
+/*================================
+    Author: Eric Freeman
+    getsomepizza
+----------------------------------
+    GENERIC STYLES
+================================*/
+
+.container {
+	opacity: 0.95;
+}
+
+html {
+    background-color: black;
+    font-family: sans-serif;
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+
+}
+
+body {
+    background-color: black;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    background: url(../img/PizzaOvenBackground.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin      : 0;
+    padding     : 1.5em;
+    font-family : Georgia,Utopia,Charter,serif;
+
+}
+
+#head-main {
+    color: black;
+    padding: 1px;
+
+}
+
+#head-main img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 700px;
+    height: 100px;
+    background: #555;
+    border: 5px double yellow;
+    display: block;
+
+}
+
+#footer {
+    color: antiquewhite;
+    font-size: 16px;
+    text-shadow: 2px 2px 8px 0 (0,0,0,0.4);
+    float: right;
+    margin: 0px 20px 0px 0px;
+    padding: 10px 0px;
+    text-align: right;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+
+}
+
+.orderMenu {
+	margin: 0% auto;
+	width: 650px;
+	border-radius: 25px;
+	/* border: 3px solid #080054; */
+	padding: 10px 5px;
+	/* background-color: #f29a80; */
+	/* background-color: #2b65c4; */
+	/* box-shadow: 0 0 0 3px rgba(255,255,255, .8); */
+	opacity: 1;
+}
+
+.pizzaMenu{
+	margin: 3% auto;
+	width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+	border-radius: 25px;
+}
+
+.groupForm { 
+    flex: 1 250px;
+    margin: 1% 1%;
+	min-width: 0;
+	border: 2px solid #080054;
+	box-shadow: 0 0 0 3px rgba(255,255,255, .7);
+	padding: 15px 15px 15px 15px;
+}
+
+.groupForm:nth-child(even) {
+    background-color: rgba(244, 245, 247, 0.9);
+    border-radius: 25px;
+}
+
+.groupForm:nth-child(odd) {
+    background-color: rgba(234, 235, 237, 0.9);
+	border-radius: 25px;
+}
+
+.groupForm>H3 {
+	font-family: 'Anton', sans-serif;
+	font-size: 20px;
+	color: rgb(177, 7, 7);
+	text-shadow: 1.5px 1.5px 5px #fff, 1px 1px 5px #000;
+	margin: -2% 0 0 auto;
+	text-align: center;
+}
+
+.orderButton {
+	display: flex;
+    flex-direction: columns;
+    justify-content: space-between;
+	margin: 2% auto;
+	width: 550px;
+}
+
+.orderButton>#buttonControl {
+    flex: 1 150px;
+    margin: 0 2%;
+}
+
+#buttonControl {
+    cursor: pointer;
+	color: #fff;
+	width: 100%;
+	display: block;
+	text-decoration: none;
+	border-radius: .5em;
+	margin: 1% auto;
+	padding: .1px 0 .1px 0px;
+    font: 18px sans-serif;
+	background-color: rgb(177, 7, 7); /*#6486bc;*/
+	box-shadow: 0 0 0 2px rgba(255,255,255, .8);
+	transition-property: transform, box-shadow, color;
+	transition-duration: .3s, .5s, .2s;
+	transition-timing-function: eas-in-out;
+}
+
+#buttonControl:hover {
+	font: 18px sans-serif;
+	font-weight: bold;
+	color: #000;
+	background-color: rgba(255, 255, 255, .6);
+	box-shadow: 0 0 0 2px #080054;
+}
+
+#orderOverview {
+	opacity: 0;
+	margin: 15px auto;
+	width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+	background-color: rgba(244, 245, 247, 0.9);
+	border: 2px solid #080054;
+	box-shadow: 0 0 0 3px rgba(255,255,255, .8);
+	border-radius: 25px;
+}
+
+#orderSummaryHeader {
+	color: #fff;
+	flex: 1 250px;
+	height: 50px;
+	width: 250px;
+	padding: 15px 10px 10px 10px;
+	background-color: rgba(205, 191, 2, 0.8);
+	border-radius: 25px 0 0 0;
+	text-shadow: 1.5px 1.5px 5px rgb(177, 7, 7), 1px 1px 5px #000;
+}
+
+#orderSubtotalHeader {
+	color: #fff;
+	flex: 1 250px;
+	height: 50px;
+    width: 250px;
+	padding: 15px 0 0px 10px;
+	background-color: rgba(205, 191, 2, 0.8);
+	border-radius: 0 25px 0 0;
+	text-shadow: 1.5px 1.5px 5px rgb(177, 7, 7), 1px 1px 5px #000;
+}
+
+#orderSummary {
+	font-size: 13px;
+	flex: 1 250px;
+	padding: 10px 0 10px 10px;
+	width: 250px;
+	border-radius: 0 0 0 0;
+}
+
+#orderSubtotal {
+	font-size: 13px;
+	flex: 1 250px;
+	padding: 10px 0 10px 10px;
+	width: 250px;
+	border-radius: 0 0 0 0;
+}
+
+#totalCostHeader {
+	flex: 1 250px;
+	padding: 20px 0 10px 10px;
+	width: 250px;
+	border-radius: 0 0 0 0;
+}
+
+#totalCost {
+	flex: 1 250px;
+	font-weight: bold;
+	padding: 20px 0 10px 10px;
+	width: 250px;
+	border-radius: 0 0 0 0;
+}

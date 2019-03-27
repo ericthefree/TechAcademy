@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AutoInsQuoteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="QuoteTotals">
+          <Key>
+            <PropertyRef Name="QuoteId" />
+          </Key>
+          <Property Name="QuoteId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientId" Type="bigint" Nullable="false" />
+          <Property Name="QuoteDate" Type="date" Nullable="false" />
+          <Property Name="QuoteFinalTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BaseTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="UnderAgeTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TeenDriveTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OverAgeTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OldCarTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="NewCarTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="SportCarTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ExoticCarTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="SpeedTicketTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DuiTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CoverageTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="RemovedQuoteDate" Type="date" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Dob" Type="datetime" Nullable="false" />
+          <Property Name="CarYear" Type="int" Nullable="false" />
+          <Property Name="CarMake" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="CarModel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dui" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="SpeedTickets" Type="int" Nullable="false" />
+          <Property Name="CoverageType" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RemoveQuote" Type="date" />
+        </EntityType>
+        <Function Name="sp_InsertQuote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+          <Parameter Name="Dob" Type="date" Mode="In" />
+          <Parameter Name="CarYear" Type="int" Mode="In" />
+          <Parameter Name="CarMake" Type="nvarchar" Mode="In" />
+          <Parameter Name="CarModel" Type="nvarchar" Mode="In" />
+          <Parameter Name="Dui" Type="nvarchar" Mode="In" />
+          <Parameter Name="SpeedTickets" Type="int" Mode="In" />
+          <Parameter Name="CoverageType" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="AutoInsQuoteModelStoreContainer">
+          <EntitySet Name="QuoteTotals" EntityType="Self.QuoteTotals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AutoInsQuoteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="QuoteTotal">
+          <Key>
+            <PropertyRef Name="QuoteId" />
+          </Key>
+          <Property Name="QuoteId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientId" Type="Int64" Nullable="false" />
+          <Property Name="QuoteDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="QuoteFinalTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BaseTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="UnderAgeTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TeenDriveTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OverAgeTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OldCarTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="NewCarTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="SportCarTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ExoticCarTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="SpeedTicketTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DuiTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CoverageTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="RemovedQuoteDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CarYear" Type="Int32" Nullable="false" />
+          <Property Name="CarMake" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Dui" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SpeedTickets" Type="Int32" Nullable="false" />
+          <Property Name="CoverageType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RemoveQuote" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="AutoInsQuoteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="QuoteTotals" EntityType="Self.QuoteTotal" />
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+          <FunctionImport Name="sp_InsertQuote">
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="Dob" Mode="In" Type="DateTime" />
+            <Parameter Name="CarYear" Mode="In" Type="Int32" />
+            <Parameter Name="CarMake" Mode="In" Type="String" />
+            <Parameter Name="CarModel" Mode="In" Type="String" />
+            <Parameter Name="Dui" Mode="In" Type="String" />
+            <Parameter Name="SpeedTickets" Mode="In" Type="Int32" />
+            <Parameter Name="CoverageType" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AutoInsQuoteModelStoreContainer" CdmEntityContainer="AutoInsQuoteEntities">
+          <EntitySetMapping Name="QuoteTotals">
+            <EntityTypeMapping TypeName="AutoInsQuoteModel.QuoteTotal">
+              <MappingFragment StoreEntitySet="QuoteTotals">
+                <ScalarProperty Name="QuoteId" ColumnName="QuoteId" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="QuoteDate" ColumnName="QuoteDate" />
+                <ScalarProperty Name="QuoteFinalTotal" ColumnName="QuoteFinalTotal" />
+                <ScalarProperty Name="BaseTotal" ColumnName="BaseTotal" />
+                <ScalarProperty Name="UnderAgeTotal" ColumnName="UnderAgeTotal" />
+                <ScalarProperty Name="TeenDriveTotal" ColumnName="TeenDriveTotal" />
+                <ScalarProperty Name="OverAgeTotal" ColumnName="OverAgeTotal" />
+                <ScalarProperty Name="OldCarTotal" ColumnName="OldCarTotal" />
+                <ScalarProperty Name="NewCarTotal" ColumnName="NewCarTotal" />
+                <ScalarProperty Name="SportCarTotal" ColumnName="SportCarTotal" />
+                <ScalarProperty Name="ExoticCarTotal" ColumnName="ExoticCarTotal" />
+                <ScalarProperty Name="SpeedTicketTotal" ColumnName="SpeedTicketTotal" />
+                <ScalarProperty Name="DuiTotal" ColumnName="DuiTotal" />
+                <ScalarProperty Name="CoverageTotal" ColumnName="CoverageTotal" />
+                <ScalarProperty Name="RemovedQuoteDate" ColumnName="RemovedQuoteDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="AutoInsQuoteModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="CarYear" ColumnName="CarYear" />
+                <ScalarProperty Name="CarMake" ColumnName="CarMake" />
+                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+                <ScalarProperty Name="Dui" ColumnName="Dui" />
+                <ScalarProperty Name="SpeedTickets" ColumnName="SpeedTickets" />
+                <ScalarProperty Name="CoverageType" ColumnName="CoverageType" />
+                <ScalarProperty Name="RemoveQuote" ColumnName="RemoveQuote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertQuote" FunctionName="AutoInsQuoteModel.Store.sp_InsertQuote" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

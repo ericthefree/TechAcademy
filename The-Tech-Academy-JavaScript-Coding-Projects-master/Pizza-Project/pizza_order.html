@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>GET SOME Pizza!</title>
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+        <meta content="width=device-width,initial-scale=1.0" name="viewport">	
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="./css/pizza_shared.css">
+    </head>
+    
+	<body>
+        <div class="container">
+            <!-- BANNER -->
+            <div id="head-main">
+                <img src="./img/Banner.png" alt="GetSomePizzaLogo" />
+                <!-- /BANNER -->
+
+                <!-- MENU -->
+                <form id="orderMenu">
+                    <div class="pizzaMenu">
+                        <!-- SIZE OPTIONS -->
+                        <div class="groupForm">  
+                        <h3>Pizza Size:</h3>
+                            <input class="pizzaSize" type="radio" name="sizeRadio" id="personalSize" value="Personal Pizza"> Personal Pizza<br>
+                            <input class="pizzaSize" type="radio" name="sizeRadio" id="mediumSize" value="Medium Pizza" checked> Medium Pizza<br>
+                            <input class="pizzaSize" type="radio" name="sizeRadio" id="largeSize" value="Large Pizza"> Large Pizza<br>
+                            <input class="pizzaSize" type="radio" name="sizeRadio" id="xLargeSize" value="Extra Large Pizza"> Extra Large Pizza<br>
+                        </div>
+                        <!-- /SIZE OPTIONS -->
+
+                        <!-- MEAT OPTIONS -->
+                        <div class="groupForm">                
+                            <h3>Meat Choices:</h3>
+                            <input class="meatChoice" type="checkbox" value="Pepperoni" id="pepperoniChoice"> Pepperoni<br>
+                            <input class="meatChoice" type="checkbox" value="Sausage" id="sausageChoice"> Sausage<br>
+                            <input class="meatChoice" type="checkbox" value="Canadian Bacon" id="cbChoice"> Canadian Bacon<br>
+                            <input class="meatChoice" type="checkbox" value="Ground Beef" id="gbChoice"> Ground Beef<br>
+                            <input class="meatChoice" type="checkbox" value="Anchovy" id="anchovyChoice"> Anchovy<br>
+                            <input class="meatChoice" type="checkbox" value="Chicken" id="chixChoice"> Chicken<br>
+                        </div>
+                        <!-- /MEAT OPTIONS -->
+
+                        <!-- CHEESE OPTIONS -->
+                        <div class="groupForm"> 
+                        <h3>Cheese Options:</h3>
+                            <input class="cheeseOption" type="radio" name="cheeseRadio" id="regularCheese" value="Regular Cheese" checked> Regular Cheese<br>
+                            <input class="cheeseOption" type="radio" name="cheeseRadio" id="noCheese" value="No Cheese"> No Cheese<br>
+                            <input class="cheeseOption" type="radio" name="cheeseRadio" id="extraCheese" value="Extra Cheese"> Extra Cheese<br>
+
+                        </div>
+                        <!-- /CHEESE OPTIONS -->
+
+                        <!-- CRUST OPTIONS -->
+                        <div class="groupForm">     
+                            <h3>Crust Options:</h3>
+                            <input class="crustOption" type="radio" name="crustRadio" id="plainCrust" value="Plain Crust" checked> Plain Crust<br>
+                            <input class="crustOption" type="radio" name="crustRadio" id="garlicCrust" value="Garlic Butter Crust"> Garlic Butter Crust<br>
+                            <input class="crustOption" type="radio" name="crustRadio" id="cheeseCrust" value="Cheese Stuffed Crust"> Cheese Stuffed Crust<br>
+                            <input class="crustOption" type="radio" name="crustRadio" id="spicyCrust" value="Spicy Crust"> Spicy Crust<br>
+                            <input class="crustOption" type="radio" name="crustRadio" id="specialCrust" value="House Special Crust"> House Special Crust<br>
+                        </div>            
+                        <!-- /CRUST OPTIONS -->
+
+                        <!-- SAUCE OPTIONS -->
+                        <div class="groupForm">
+                            <h3>Sauce Options:</h3>
+                            <input class="sauceOption" type="radio" name="sauceRadio" id="marinaraSauce" value="Marinara Sauce" checked> Marinara Sauce<br>
+                            <input class="sauceOption" type="radio" name="sauceRadio" id="whiteSauce" value="White Sauce"> White Sauce<br>
+                            <input class="sauceOption" type="radio" name="sauceRadio" id="bbqSauce" value="BBQ Sauce"> BBQ Sauce<br>
+                            <input class="sauceOption" type="radio" name="sauceRadio" id="noSauce" value="No Sauce"> No Sauce<br>
+                        </div>
+                        <!-- /SAUCE OPTIONS -->
+
+                        <!-- VEGGIE OPTIONS -->
+                        <div class="groupForm"> 
+                            <h3>Veggie Choices:</h3>
+                            <input class="veggieChoice" type="checkbox" value="Tomatoes" id="tomatoChoice"> Tomatoes<br>
+                            <input class="veggieChoice" type="checkbox" value="Onion" id="onionChoice"> Onion<br>
+                            <input class="veggieChoice" type="checkbox" value="Olives" id="oliveChoice"> Olives<br>
+                            <input class="veggieChoice" type="checkbox" value="Green Peppers" id="greenPepChoice"> Green Peppers<br>
+                            <input class="veggieChoice" type="checkbox" value="Mushrooms" id="mushroomChoice"> Mushrooms<br>
+                            <input class="veggieChoice" type="checkbox" value="Pineapple" id="pineappleChoice"> Pineapple<br>
+                            <input class="veggieChoice" type="checkbox" value="Spinach" id="spinachChoice"> Spinach<br>
+                            <input class="veggieChoice" type="checkbox" value="Jalapeño" id="jalepenoChoice"> Jalapeño<br>
+                        </div>
+                        <!-- /VEGGIE OPTIONS -->
+                    </div>
+                </form>
+
+                <!-- BUTTON CONTROLS -->
+                <div class="orderButton">
+                    <input id="buttonControl" type="button" value="Order Now" onclick="getTotal()"></input>
+                    <input id="buttonControl" type="button" value="Clear Selections" onclick="resetForm()"></input>
+                </div>
+                <!-- /BUTTON CONTROLS -->
+
+                <!-- RECEIPT -->
+                <div id="orderOverview">
+                    <div id="orderSummaryHeader"><h3>Order Summary</h3></div>
+                    <div id="orderSubtotalHeader"><h3>Order SubTotal</h3></div>
+                    <div id="orderSummary"></div>
+                    <div id="orderSubtotal"></div>
+                    <div id="totalCostHeader"><h3>Total Cost</h3></div>
+                    <div id="totalCost"></div>
+                </div>
+                <!-- /RECEIPT -->
+                <!-- /MENU -->
+
+                <!-- FOOTER -->
+                <div id="footer">
+                        www.getsome.pizza &nbsp;|&nbsp; &copy; 2018
+                </div>
+                <!-- END FOOTER -->
+            </div>
+        </div>
+        <script src="./js/orderPizza.js"></script>
+        
+    </body>  
+</html>

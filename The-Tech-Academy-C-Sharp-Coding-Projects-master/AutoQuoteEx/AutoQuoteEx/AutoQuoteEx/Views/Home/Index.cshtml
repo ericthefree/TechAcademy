@@ -1,0 +1,158 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/shared_custom.css">
+    <script type="text/javascript" src="~/Scripts/jquery.ui.datepicker.validation.js"></script>
+    <title>Shady Insurance, Inc.</title>
+
+    @*Header for the form*@
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Shady Insurance, Inc.</h1>
+            <p>Get a car insurance quote!</p>
+        </div>
+    </div>
+</head>
+
+    <body>
+        <div class="container py-2">
+            @* Build out the form to request customer input for the quote *@
+            <div class="row">
+                <div class="mx-auto col-sm-7">
+                    @using (Html.BeginForm("GetCustomerDetail", "Home", FormMethod.Post))
+                    {
+                        <div class="card shadow p-3 mb-5 bg-white rounded">
+                            <div class="card-body">
+                                @*You must get the following information from the user: First Name*@
+                                <div class="form" role="form" autocomplete="off">
+                                    <div class="form-group row">
+                                        <label for="firstName" class="col-3 col-form-label form-control-label"><b>First Name:</b></label>
+                                        <div class="col-9">
+                                            <input name="FirstName" type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                                        </div>
+                                    </div>
+                                    @*You must get the following information from the user: Last Name*@
+                                    <div class="form-group row">
+                                        <label for="lastName" class="col-3 col-form-label form-control-label"><b>Last Name:</b></label>
+                                        <div class="col-9">
+                                            <input name="LastName" type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                                        </div>
+                                    </div>
+                                    @*You must get the following information from the user: Email Address*@
+                                    <div class="form-group row">
+                                        <label for="emailAddress" class="col-3 col-form-label form-control-label"><b>Email Address:</b></label>
+                                        <div class="col-9">
+                                            <input type="text" name="EmailAddress" class="form-control" id="emailAddress" placeholder="Email Address" required>
+                                        </div>
+                                    </div>
+                                    @*You must get the following information from the user:
+                                    Date of Birth - use a datepicker control here to ensure proper date format*@
+                                    <div class="form-group row">
+                                        <label for="dateOfBirth" class="col-3 col-form-label form-control-label"><b>Date of Birth:</b></label>
+                                        <div class="col-9">
+                                            <input name="dateOfBirth" type="date" class="hasDatepicker valid form-control input-md" id="dateOfBirth" placeholder="Date of Birth" required>
+                                        </div>
+                                    </div>
+                                    @*You must get the following information from the user: Car Year*@
+                                    <div class="form-group row">
+                                        <label id="carYear" for="carYear" class="col-3 col-form-label form-control-label"><b>Car Year:</b></label>
+                                        <div class="col-9">
+                                            @Html.DropDownList("carYear", null, "Select Year", new
+                                               {
+                                                    @id="carYear",
+                                                    @onChange = "return ChangeYear(this)",
+                                                    @class = "form-control",
+                                                    @style = "width=150px"
+
+                                               })
+                                        </div>
+                                    </div>
+                                    @*You must get the following information from the user: Car Make*@
+                                    <div class="form-group row">
+                                        <label for="carMake" class="col-3 col-form-label form-control-label"><b>Car Make:</b></label>
+                                        <div class="col-9">
+                                            <input name="CarMake" type="text" class="form-control" id="carMake" placeholder="Car Make" required>
+                                        </div>
+                                    </div>
+                                    @*You must get the following information from the user: Car Model*@
+                                    <div class="form-group row">
+                                        <label for="carModel" class="col-3 col-form-label form-control-label"><b>Car Model:</b></label>
+                                        <div class="col-9">
+                                            <input name="CarModel" type="text" class="form-control" id="carModel" placeholder="Car Model" required>
+                                        </div>
+                                    </div>
+                                    @*You must get the following information from the user: If they have ever had a DUI.*@
+                                    <div class="form-group row">
+                                        <label for="duiSelect" class="col-3 col-form-label form-control-label radio-inline text-left"><b>Had a DUI:</b></label>
+                                        <div class="col-9">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="DuiSelect" value="no" required checked> No
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="DuiSelect" value="yes" required> Yes
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @*You must get the following information from the user: How many speeding tickets they have.*@
+                                    <div class="form-group row">
+                                        <label for="speedTickets" class="col-3 col-form-label form-control-label"><b>Speed Tickets:</b></label>
+                                        <div class="col-9">
+                                            <input name="SpeedTickets" type="text" class="form-control" id="speedTickets" placeholder="# Speeding Tickets" value="0" required>
+                                        </div>
+                                    </div>
+                                    @*You must get the following information from the user: Would they like full coverage or liability ? *@
+                                    <div class="form-group row">
+                                        <label for="coverageType" class="col-3 radio-inline"><b>Coverage Type:</b></label>
+                                        <div class="col-9">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="CoverageType" value="full" required checked>  Full
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="CoverageType" value="liability" required>  Liability
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @* Submit the user entered data.  Data is pushed to the home controller *@
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label form-control-label"></label>
+                                        <div class="col-9">
+                                            <input name="submit" type="submit" class="btn btn-primary" value="Submit Quote" />
+                                            @* Give the user the option to reset the form *@
+                                            <input name="reset" type="reset" class="btn btn-secondary" value="Reset Quote" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        @* Javascript to format the datepicker in the form *@
+        <script type="text/javascript">
+            $(function () {
+                $("#dateOfBirth").datepicker({
+                    dateFormat: 'dd-mm-yy',
+                    changeMonth: true,
+                    changeYear: true
+                });
+            })
+        </script>
+
+        <script type="text/javascript">
+            $(function ChangeYear(obj) {
+                window.location.href = '@Url.Action("Index","DropDown")?Year=' + obj.value;
+            }
+        </script>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/south-street/jquery-ui.css">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/Content/jquery.validate.js"></script>
+    </body>
+</html>

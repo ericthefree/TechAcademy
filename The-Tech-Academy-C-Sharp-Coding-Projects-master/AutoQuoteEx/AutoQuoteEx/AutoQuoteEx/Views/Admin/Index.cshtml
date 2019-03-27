@@ -1,0 +1,113 @@
+﻿@using AutoQuoteEx.ViewModels
+@model List<QuoteListVM>
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Content/shared_custom.css" />
+
+        <link type="text/css" href="~/Content/dataTables.checkboxes.css" rel="stylesheet">
+        <script type="text/javascript" src="~/Scripts/dataTables.checkboxes.min.js"></script>
+        <title>Shady Insurance, Inc.</title>
+
+        @*Header for the form*@
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Shady Insurance, Inc.</h1>
+                <p>Get a car insurance quote!</p>
+            </div>
+        </div>
+    </head>
+
+
+    <body>
+        @* Display the users and their quotes *@
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+                <form id="tableForm" method="post">
+                    <h2 class="text-center">Quote List</h2>
+                    <table id="quoteTable" class="table" cellspacing="0" width="100">
+                        <thead>
+                            <tr>
+                                <th>Quote Date</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email Address</th>
+                                <th>Quote Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var quote in Model)
+                            {
+                                using (Html.BeginForm("Index", "Admin", FormMethod.Post))
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.Label(@quote.QuoteDate.ToString("MMM dd, yyyy"))
+                                        </td>
+                                        <td>
+                                            @quote.FirstName
+                                        </td>
+                                        <td>
+                                            @quote.LastName
+                                        </td>
+                                        <td>
+                                            @quote.EmailAddress
+                                        </td>
+                                        <td>
+                                            $ @quote.QuoteFinalTotal
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var table = $('#quoteTable').DataTable({
+                    'columnDefs': [
+                        {
+                            'targets': 0,
+                            'checkboxes': {
+                                'selectRow': true
+                            }
+                        }
+                    ],
+                    'select': {
+                        'style': 'multi'
+                    },
+                    'order': [[1, 'asc']]
+                });
+
+                // Handle form submission event
+                $('#tableForm').on('submit', function (e) {
+                    var form = this;
+                    var rows_selected = table.column(0).checkboxes.selected();
+
+                    // Iterate over all selected checkboxes
+                    $.each(rows_selected, function (index, rowId) {
+                        // Create a hidden element
+                        $(form).append(
+                            $('<input>')
+                                .attr('type', 'hidden')
+                                .attr('name', 'id[]')
+                                .val(rowId)
+                        );
+                    });
+                });
+            });
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

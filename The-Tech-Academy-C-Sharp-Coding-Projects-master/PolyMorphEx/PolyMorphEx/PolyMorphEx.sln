@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyMorphEx", "PolyMorphEx\PolyMorphEx.csproj", "{53C11A70-96D0-41F8-BDA6-74712647270F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53C11A70-96D0-41F8-BDA6-74712647270F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C11A70-96D0-41F8-BDA6-74712647270F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C11A70-96D0-41F8-BDA6-74712647270F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C11A70-96D0-41F8-BDA6-74712647270F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32128E40-99FE-49B0-9D48-50C5FA6A051D}
+	EndGlobalSection
+EndGlobal
